@@ -12,8 +12,6 @@ import Home from './components/Home';
 
 function App() {
   const [product, setProduct] = useState([]);
-  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-  axios.post(`${BACKEND_URL}/newOrder`);
 
   const getAllProducts = useCallback(async () => {
     try {
@@ -38,13 +36,7 @@ function App() {
         />
         <Route
           path="/"
-          element={
-            <List
-              product={product}
-              setProduct={setProduct}
-              getAllProducts={getAllProducts}
-            />
-          }
+          element={<List product={product} setProduct={setProduct} getAllProducts={getAllProducts} />}
         />
         <Route path="/home" element={<Home />} />
         <Route path="/signup" element={<SignUp />} />
