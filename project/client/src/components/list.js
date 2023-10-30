@@ -22,7 +22,7 @@ function List({ product, setProduct, getAllProducts }) {
 
   async function showTech() {
     try {
-      const response = await axios.get('http://localhost:8000');
+      const response = await axios.get('https://sys-legacy1.onrender.com');
       console.log('tech', product, response.data);
       let filteredTech = response.data.filter(
         (tech) => tech.category === 'Tech',
@@ -37,7 +37,7 @@ function List({ product, setProduct, getAllProducts }) {
 
   async function showOther() {
     try {
-      const response = await axios.get('http://localhost:8000');
+      const response = await axios.get('https://sys-legacy1.onrender.com');
       console.log('other', product, response.data);
       let filteredOther = response.data.filter(
         (other) => other.category === 'Other',
