@@ -1,22 +1,22 @@
 import React from 'react';
 import { useState } from 'react';
-import axios from "axios";
+import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { RxUpdate } from 'react-icons/rx';
 import { TiCancelOutline } from 'react-icons/ti';
 
-function Edit({g ,setId, getAllProducts, id }) {
-   //states
-   const [updatedValue, setUpdatedValue] = useState({
+function Edit({ g, setId, getAllProducts, id }) {
+  //states
+  const [updatedValue, setUpdatedValue] = useState({
     title: g.title,
     imgUrl: g.imgUrl,
     description: g.description,
-    price:g.price,
+    price: g.price,
   });
 
-  const handleInputChange = (e) =>  {
-    console.log ("it works")
+  const handleInputChange = (e) => {
+    console.log('it works');
     setUpdatedValue({
       ...updatedValue,
       [e.target.name]: e.target.value,
@@ -27,7 +27,7 @@ function Edit({g ,setId, getAllProducts, id }) {
   function saveChanges() {
     try {
       axios
-        .put(`http://localhost:8000/${id}`, {
+        .put(`https://sys-legacy1.onrender.com/${id}`, {
           title: updatedValue.title,
           imgUrl: updatedValue.imgUrl,
           description: updatedValue.description,
@@ -40,7 +40,7 @@ function Edit({g ,setId, getAllProducts, id }) {
       console.log(error);
     }
     setId(1);
-  };
+  }
 
   return (
     <div key={g._id}>
@@ -85,7 +85,6 @@ function Edit({g ,setId, getAllProducts, id }) {
           <TiCancelOutline /> Cancel
         </Button>
       </div>
-
     </div>
   );
 }

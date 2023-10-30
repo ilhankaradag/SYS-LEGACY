@@ -14,7 +14,7 @@ function SignUp() {
   const navigate = useNavigate();
   async function handleRegister(e) {
     e.preventDefault();
-    let res = await axios.post('http://localhost:8000/register', {
+    let res = await axios.post('https://sys-legacy1.onrender.com/register', {
       email,
       password,
       role,

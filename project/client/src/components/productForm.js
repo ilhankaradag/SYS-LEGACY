@@ -53,7 +53,7 @@ function AddProduct({ getAllProducts }) {
     }
 
     axios
-      .post('http://localhost:8000/create', product, {
+      .post('https://sys-legacy1.onrender.com/create', product, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {

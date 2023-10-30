@@ -41,7 +41,7 @@ function Item({ getAllProducts, product }) {
     console.log('hi');
   }
 
- /*  async function deleteProduct(id) {
+  /*  async function deleteProduct(id) {
     const alertDeleteProduct = window.confirm("are you sure mate?");
     if (alertDeleteProduct) {
       try {
@@ -58,29 +58,36 @@ function Item({ getAllProducts, product }) {
     }
   }; */
   async function deleteProduct(id) {
-  Swal.fire({
-    title: 'Do you want to save the changes?',
-    showDenyButton: true,
-    showCancelButton: true,
-    confirmButtonText: 'Save',
-    denyButtonText: `Don't save`,
-  }).then((result) => {
-    if (result.isConfirmed) {
-      axios.delete(`http://localhost:8000/${id}`)
-      .then (() => getAllProducts())
-      .then (() => Swal.fire('Saved!', '', 'success'))
-    } else if (result.isDenied) {
-      Swal.fire('Changes are not saved', '', 'info')
-    }
-  })
-  };
+    Swal.fire({
+      title: 'Do you want to save the changes?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Save',
+      denyButtonText: `Don't save`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`https://sys-legacy1.onrender.com/${id}`)
+          .then(() => getAllProducts())
+          .then(() => Swal.fire('Saved!', '', 'success'));
+      } else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info');
+      }
+    });
+  }
 
   return (
     <Container fluid className="m-4 " style={{ width: '100%' }}>
       <Row md={2} lg={3} xl={4} style={{ width: '100%' }} className="g-2">
         {product.map((g, index) =>
           id === g._id ? (
-            <Edit g={g} setId={setId} handleEdit={handleEdit} getAllProducts ={getAllProducts} id={id} />
+            <Edit
+              g={g}
+              setId={setId}
+              handleEdit={handleEdit}
+              getAllProducts={getAllProducts}
+              id={id}
+            />
           ) : (
             <Col key={index}>
               <Card style={{ width: '18rem' }} border="secondary">

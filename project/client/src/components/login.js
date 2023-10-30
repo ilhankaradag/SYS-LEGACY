@@ -18,7 +18,7 @@ function Login() {
   async function handleLogin(e) {
     try {
       e.preventDefault();
-      let res = await axios.post('http://localhost:8000/login', {
+      let res = await axios.post('https://sys-legacy1.onrender.com/login', {
         email,
         password,
       });

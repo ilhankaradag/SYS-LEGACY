@@ -10,7 +10,7 @@ import { BsFillCartPlusFill } from 'react-icons/bs';
 function List({ product, setProduct, getAllProducts }) {
   async function showGames() {
     try {
-      const response = await axios.get('http://localhost:8000');
+      const response = await axios.get('https://sys-legacy1.onrender.com');
       console.log('response games', response.data);
       let filteredGames = product.filter((game) => game.category === 'Games');
       await setProduct(filteredGames);

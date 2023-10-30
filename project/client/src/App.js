@@ -15,7 +15,7 @@ function App() {
 
   const getAllProducts = useCallback(async () => {
     try {
-      const response = await axios.get('http://localhost:8000');
+      const response = await axios.get('https://sys-legacy1.onrender.com');
       setProduct(response.data);
     } catch (error) {
       console.log(error);
@@ -36,7 +36,13 @@ function App() {
         />
         <Route
           path="/"
-          element={<List product={product} setProduct={setProduct} getAllProducts={getAllProducts} />}
+          element={
+            <List
+              product={product}
+              setProduct={setProduct}
+              getAllProducts={getAllProducts}
+            />
+          }
         />
         <Route path="/home" element={<Home />} />
         <Route path="/signup" element={<SignUp />} />
